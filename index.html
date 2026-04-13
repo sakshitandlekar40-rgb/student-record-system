@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Record Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Student Record Management System</h1>
+
+    <div class="card">
+      <h2>Add Student</h2>
+      <form>
+        <div class="input-group">
+          <label>Student Name</label>
+          <input type="text" placeholder="Enter student name" />
+        </div>
+
+        <div class="input-group">
+          <label>Roll Number</label>
+          <input type="text" placeholder="Enter roll number" />
+        </div>
+
+        <div class="input-group">
+          <label>Course</label>
+          <input type="text" placeholder="Enter course name" />
+        </div>
+
+        <div class="input-group">
+          <label>Marks</label>
+          <input type="text" placeholder="Enter marks" />
+        </div>
+
+        <div class="btn-group">
+          <button type="button" onclick="addRecord()">Add Record</button>
+          <button type="reset" class="reset-btn">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Student Records</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Course</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Priya</td>
+            <td>101</td>
+            <td>BCA</td>
+            <td>85</td>
+          </tr>
+          <tr>
+            <td>Riya</td>
+            <td>102</td>
+            <td>BCA</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>Neha</td>
+            <td>103</td>
+            <td>BCA</td>
+            <td>88</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+function addRecord() {
+    let name = document.querySelectorAll("input")[0].value;
+    let roll = document.querySelectorAll("input")[1].value;
+    let course = document.querySelectorAll("input")[2].value;
+    let marks = document.querySelectorAll("input")[3].value;
+
+    if(name === "" || roll === "" || course === "" || marks === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let table = document.querySelector("tbody");
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerText = name;
+    row.insertCell(1).innerText = roll;
+    row.insertCell(2).innerText = course;
+    row.insertCell(3).innerText = marks;
+
+    document.querySelector("form").reset();
+}
+</script>
+</body>
+</html>
